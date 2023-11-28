@@ -3,7 +3,7 @@ name: Deploy React app to AWS using CI/CD
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
