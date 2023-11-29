@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image using Docker Compose
-      run: docker-compose -f C:\Users\ASUS\Desktop\React-app\docker-compose.yml up --build
+      run: docker-compose -f tohidaws/react-app-web:latest up --build
 
     - name: Push Docker image
       run: docker push tohidaws/react-js:new
