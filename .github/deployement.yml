@@ -19,11 +19,11 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build Docker image
-      run: docker build -t vikta96/react-js:new .
+    - name: Build Docker image using Docker Compose
+      run: docker-compose -f C:\Users\ASUS\Desktop\React-app\docker-compose.yml up --build
 
     - name: Push Docker image
-      run: docker push vikta96/react-js:new
+      run: docker push tohidaws/react-js:new
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,8 +41,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: demo
-          environment_name: Demo-env
+          application_name: React-app
+          environment_name: React-app-env
           version_label: ${{ github.sha }}
           existing_bucket_name: elasticbeanstalk-ap-southeast-2-961150958852
           region: ap-southeast-2
