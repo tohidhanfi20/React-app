@@ -41,5 +41,3 @@ jobs:
           region: ap-south-1
           deployment_package: myapp1.zip
 
-      - name: Deployed!
-        run: echo App deployed to ELB
