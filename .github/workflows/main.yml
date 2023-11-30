@@ -40,8 +40,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: newapp
-          environment_name: Newapp-env
+          application_name: myapp
+          environment_name: myapp-env
           version_label: ${{ github.sha }}
           existing_bucket_name: elasticbeanstalk-ap-south-1-295014735180
           region: ap-south-1
