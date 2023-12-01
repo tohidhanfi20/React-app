@@ -13,6 +13,18 @@ jobs:
       - name: Checkout Latest Repo
         uses: actions/checkout@v2
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+         username: ${{ secrets.DOCKER_USERNAME }}
+         password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: docker build -t tohidaws/react:latest .
+
+      - name: Push Docker image
+        run: docker push tohidaws/react:latest  
+
       - name: Generate Deployment Package 
         run: zip -r app.zip * -x "**.git**"
 
@@ -35,8 +47,8 @@ jobs:
         with:
           aws_access_key: "${{ secrets.AWS_ACCESS_KEY_ID }}"
           aws_secret_key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
-          application_name: app
-          environment_name: App-env
+          application_name: myapp1
+          environment_name: Myapp1
           version_label: "app-${{ steps.format-time.outputs.replaced }}"
           region: ap-south-1
           deployment_package: app.zip
