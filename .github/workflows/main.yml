@@ -48,7 +48,7 @@ jobs:
           aws_access_key: "${{ secrets.AWS_ACCESS_KEY_ID }}"
           aws_secret_key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           application_name: myapp1
-          environment_name: Myapp1
+          environment_name: Myapp1-env
           version_label: "app-${{ steps.format-time.outputs.replaced }}"
           region: ap-south-1
           deployment_package: app.zip
